@@ -5,17 +5,9 @@ using OpenQA.Selenium.Chrome;
 
 namespace Selenium_Basics_Internship_2020
 {
-	class SearchTest
+	public class LogInTest
 	{
 		private ChromeDriver driver;
-		private readonly string homepage = "http://testing-ground.scraping.pro/login";
-
-		private readonly string correctUserName = "admin";
-		private readonly string correctPassword = "12345";
-
-		private readonly string wrongUserName = "user";
-		private readonly string wrongPassword = "54321";
-
 
 		[SetUp]
 		public void SetUp()
@@ -27,7 +19,7 @@ namespace Selenium_Basics_Internship_2020
 		[TearDown]
 		public void CloseDriver()
 		{
-			driver.Quit();
+			driver.Dispose();
 		}
 
 		public void NavigateToURL(string url)
@@ -43,12 +35,12 @@ namespace Selenium_Basics_Internship_2020
 		[Test]
 		public void LogInSuccessfully()
 		{
-			NavigateToURL(homepage);
-
 			LogInPage logInPage = new LogInPage(driver);
 
-			logInPage.EnterUserName(correctUserName);
-			logInPage.EnterPassword(correctPassword);
+			NavigateToURL(logInPage.homepage);
+
+			logInPage.EnterUserName(logInPage.correctUserName);
+			logInPage.EnterPassword(logInPage.correctPassword);
 
 			logInPage.ClickOnLogInButton();
 
@@ -58,12 +50,12 @@ namespace Selenium_Basics_Internship_2020
 		[Test]
 		public void LogInErrorMessageSuccessfullyDisplayed()
 		{
-			NavigateToURL(homepage);
-
 			LogInPage logInPage = new LogInPage(driver);
 
-			logInPage.EnterUserName(wrongUserName);
-			logInPage.EnterPassword(wrongPassword);
+			NavigateToURL(logInPage.homepage);
+
+			logInPage.EnterUserName(logInPage.wrongUserName);
+			logInPage.EnterPassword(logInPage.wrongPassword);
 
 			logInPage.ClickOnLogInButton();
 

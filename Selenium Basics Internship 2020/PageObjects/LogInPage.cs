@@ -7,7 +7,16 @@ namespace Selenium_Basics_Internship_2020
 {
 	class LogInPage
 	{
+		public string homepage = "http://testing-ground.scraping.pro/login";
+
+		public readonly string correctUserName = "admin";
+		public readonly string correctPassword = "12345";
+
+		public readonly string wrongUserName = "user";
+		public readonly string wrongPassword = "54321";
+
 		private IWebDriver driver;
+
 		readonly By userNameField = By.Id("usr");
 		readonly By passwordField= By.Id("pwd");
 		readonly By logInButton = By.CssSelector("[type='submit']");
