@@ -128,6 +128,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PageObjects\LogInPage.cs" />
     <Compile Include="StepBindings\LogInSteps.cs" />
+    <Compile Include="Tests\BasicTest.cs" />
     <Compile Include="Tests\LogInTest.cs" />
   </ItemGroup>
   <ItemGroup>
